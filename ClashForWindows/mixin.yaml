@@ -37,4 +37,4 @@ mixin: # object
     - RULE-SET,ProxyGFWlist,Proxy
     - RULE-SET,ProxyMedia,Proxy
     - GEOIP,CN,DIRECT
-    - MATCH,DIRECT
+    - MATCH,Proxy
