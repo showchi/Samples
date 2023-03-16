@@ -8,12 +8,15 @@
 
 [OpenClash](https://github.com/vernesong/OpenClash)
 
-## Clash Rules
+## Rules
 
-[GitHub - ACL4SSR/ACL4SSR at master](https://github.com/ACL4SSR/ACL4SSR/tree/master)
+[clash rules by ACL4SSR](https://github.com/ACL4SSR/ACL4SSR/tree/master)
+
+[Shadowrocket rules by Johnshall](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
 ## How to use
 
 [clash wiki](https://github.com/Dreamacro/clash/wiki)
 
 [clash samples](https://lancellc.gitbook.io/clash/)
+

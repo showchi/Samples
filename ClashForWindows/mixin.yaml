@@ -30,8 +30,22 @@ mixin: # object
       url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
       path: ./ruleset/ProxyMedia.yaml
       interval: 86400
+    Apple:
+      type: http
+      behavior: "classical"
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
+      path: ./ruleset/Apple.yaml
+      interval: 86400
+    OneDrive:
+      type: http
+      behavior: "classical"
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml"
+      path: ./ruleset/OneDrive.yaml
+      interval: 86400
   rules:
     - RULE-SET,Microsoft,Proxy
+    - RULE-SET,OneDrive,Proxy
+    - RULE-SET,Apple,DIRECT
     - RULE-SET,ChinaMedia,DIRECT
     - RULE-SET,LocalAreaNetwork,DIRECT
     - RULE-SET,ProxyGFWlist,Proxy
