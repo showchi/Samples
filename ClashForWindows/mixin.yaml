@@ -43,6 +43,7 @@ mixin: # object
       path: ./ruleset/OneDrive.yaml
       interval: 86400
   rules:
+    - DOMAIN-KEYWORD,bing,Proxy
     - RULE-SET,Microsoft,Proxy
     - RULE-SET,OneDrive,Proxy
     - RULE-SET,Apple,DIRECT

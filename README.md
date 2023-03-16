@@ -14,6 +14,8 @@
 
 [Shadowrocket rules by Johnshall](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
+[rules and scripts by blackmatrix7](https://github.com/blackmatrix7/ios_rule_script)
+
 ## How to use
 
 [clash wiki](https://github.com/Dreamacro/clash/wiki)
