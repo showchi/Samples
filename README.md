@@ -18,6 +18,8 @@
 
 ## How to use
 
+[clash for windows wiki](https://docs.cfw.lbyczf.com/)
+
 [clash wiki](https://github.com/Dreamacro/clash/wiki)
 
 [clash samples](https://lancellc.gitbook.io/clash/)
