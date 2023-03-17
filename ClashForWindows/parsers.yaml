@@ -1,0 +1,55 @@
+parsers: # array
+  - url: https://update.glados-config.com/clash/176109/4c4368d/13902/glados.yaml
+    yaml:
+      mix-rule-providers:
+        Microsoft:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
+          path: ./ruleset/Microsoft.yaml
+          interval: 86400
+        ChinaMedia:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
+          path: ./ruleset/ChinaMedia.yaml
+          interval: 86400
+        LocalAreaNetwork:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+          path: ./ruleset/LocalAreaNetwork.yaml
+          interval: 86400
+        ProxyGFWlist:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+          path: ./ruleset/ProxyGFWlist.yaml
+          interval: 86400
+        ProxyMedia:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+          path: ./ruleset/ProxyMedia.yaml
+          interval: 86400
+        Apple:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
+          path: ./ruleset/Apple.yaml
+          interval: 86400
+        OneDrive:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml"
+          path: ./ruleset/OneDrive.yaml
+          interval: 86400
+      prepend-rules:
+          - DOMAIN-KEYWORD,bing,Proxy
+          - RULE-SET,Microsoft,Proxy
+          - RULE-SET,OneDrive,Proxy
+          - RULE-SET,Apple,DIRECT
+          - RULE-SET,ChinaMedia,DIRECT
+          - RULE-SET,LocalAreaNetwork,DIRECT
+          - RULE-SET,ProxyGFWlist,Proxy
+          - RULE-SET,ProxyMedia,Proxy
