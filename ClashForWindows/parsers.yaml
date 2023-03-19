@@ -1,7 +1,7 @@
 parsers: # array
-  - url: https://update.glados-config.com/clash/176109/4c4368d/13902/glados.yaml
+  - url: url_to_yaml
     yaml:
-      mix-rule-providers:
+      mix-rule-providers: # 引入第三方规则集
         Microsoft:
           type: http
           behavior: "classical"
@@ -45,11 +45,21 @@ parsers: # array
           path: ./ruleset/OneDrive.yaml
           interval: 86400
       prepend-rules:
-          - DOMAIN-KEYWORD,bing,Proxy
-          - RULE-SET,Microsoft,Proxy
-          - RULE-SET,OneDrive,Proxy
+          - DOMAIN-KEYWORD,bing,Bing
+          - RULE-SET,Microsoft,Bing
+          - RULE-SET,OneDrive,Bing
           - RULE-SET,Apple,DIRECT
           - RULE-SET,ChinaMedia,DIRECT
           - RULE-SET,LocalAreaNetwork,DIRECT
           - RULE-SET,ProxyGFWlist,Proxy
           - RULE-SET,ProxyMedia,Proxy
+      prepend-proxy-groups: # 订阅更新时，手动添加proxy-groups
+        - name: Bing
+          type: url-test
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          tolerance: 100
+          proxies:
+            - DIRECT
+      commands:
+        - proxy-groups.Bing.proxies=[]proxyNames|US
