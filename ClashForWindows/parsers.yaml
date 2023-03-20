@@ -1,4 +1,5 @@
 parsers: # array
+  # - reg: ^.*$ 匹配所有订阅，或 - url: https://example.com/profile.yaml 指定订阅
   - url: url_to_yaml
     yaml:
       mix-rule-providers: # 引入第三方规则集

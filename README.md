@@ -24,3 +24,8 @@
 
 [clash samples](https://lancellc.gitbook.io/clash/)
 
+[clash for windows parsers sample1](https://gist.github.com/FDUZS/6bea8f088d125987159200bf6b3cc407)
+
+[clash for windows parsers sample2](https://gist.github.com/ForLovelj/484c48d33eb966a5528155875e432160)
+
+
