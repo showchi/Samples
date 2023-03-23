@@ -1,6 +1,6 @@
 parsers: # array
   # - reg: ^.*$ 匹配所有订阅，或 - url: https://example.com/profile.yaml 指定订阅
-  - url: url_to_yaml
+  - reg: ^.*$
     yaml:
       mix-rule-providers: # 引入第三方规则集
         Microsoft:
@@ -45,15 +45,22 @@ parsers: # array
           url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml"
           path: ./ruleset/OneDrive.yaml
           interval: 86400
+        ChatGPT:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/showchi/Samples/main/ClashForWindows/ChatGPT.yaml"
+          path: ./ruleset/ChatGPT.yaml
+          interval: 86400
       prepend-rules:
+          - RULE-SET,ChatGPT,chatGPT
           - DOMAIN-KEYWORD,bing,Bing
           - RULE-SET,Microsoft,Bing
           - RULE-SET,OneDrive,Bing
           - RULE-SET,Apple,DIRECT
           - RULE-SET,ChinaMedia,DIRECT
           - RULE-SET,LocalAreaNetwork,DIRECT
-          - RULE-SET,ProxyGFWlist,Proxy
-          - RULE-SET,ProxyMedia,Proxy
+          - RULE-SET,ProxyGFWlist,Bing
+          - RULE-SET,ProxyMedia,Bing
       prepend-proxy-groups: # 订阅更新时，手动添加proxy-groups
         - name: Bing
           type: url-test
@@ -62,5 +69,13 @@ parsers: # array
           tolerance: 100
           proxies:
             - DIRECT
+        - name: chatGPT
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
       commands:
-        - proxy-groups.Bing.proxies=[]proxyNames|US
+        - proxy-groups.Bing.proxies=[]proxyNames|US|HK|SG|TW|JP|香港|美国|台湾|🇺🇸|🇭🇰|Taiwan
+        - proxy-groups.chatGPT.proxies=[]proxyNames|US|美国|🇺🇸
