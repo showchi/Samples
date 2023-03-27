@@ -39,6 +39,12 @@ parsers: # array
           url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
           path: ./ruleset/Apple.yaml
           interval: 86400
+        Google:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Google.yaml"
+          path: ./ruleset/Google.yaml
+          interval: 86400          
         OneDrive:
           type: http
           behavior: "classical"
@@ -51,8 +57,16 @@ parsers: # array
           url: "https://raw.githubusercontent.com/showchi/Samples/main/ClashForWindows/ChatGPT.yaml"
           path: ./ruleset/ChatGPT.yaml
           interval: 86400
+        BanEasyListChina:
+          type: http
+          behavior: "classical"
+          url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
+          path: ./ruleset/BanEasyListChina.yaml
+          interval: 86400
       prepend-rules:
-          - RULE-SET,ChatGPT,chatGPT
+          - RULE-SET,BanEasyListChina,REJECT
+          - RULE-SET,ChatGPT,ChatGPT
+          - RULE-SET,Google,ChatGPT          
           - DOMAIN-KEYWORD,bing,Bing
           - RULE-SET,Microsoft,Bing
           - RULE-SET,OneDrive,Bing
@@ -69,7 +83,7 @@ parsers: # array
           tolerance: 100
           proxies:
             - DIRECT
-        - name: chatGPT
+        - name: ChatGPT
           type: select
           url: "http://www.gstatic.cn/generate_204"
           interval: 600
@@ -78,4 +92,4 @@ parsers: # array
             - DIRECT
       commands:
         - proxy-groups.Bing.proxies=[]proxyNames|US|HK|SG|TW|JP|香港|美国|台湾|🇺🇸|🇭🇰|Taiwan
-        - proxy-groups.chatGPT.proxies=[]proxyNames|US|美国|🇺🇸
+        - proxy-groups.ChatGPT.proxies=[]proxyNames|US|美国|🇺🇸
