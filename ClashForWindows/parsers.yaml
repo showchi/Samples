@@ -7,45 +7,36 @@ parsers: # array
         Microsoft:
           type: http
           behavior: "classical"
-          # url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
           url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml"
           path: ./ruleset/Microsoft.yaml
           interval: 86400
-        ChinaMedia:
+        China:
           type: http
           behavior: "classical"
-          url: "https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
-          path: ./ruleset/ChinaMedia.yaml
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical.yaml"
+          path: ./ruleset/China.yaml
           interval: 86400
-        LocalAreaNetwork:
+        Netflix:
           type: http
           behavior: "classical"
-          url: "https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
-          path: ./ruleset/LocalAreaNetwork.yaml
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml"
+          path: ./ruleset/Netflix.yaml
           interval: 86400
-        ProxyGFWlist:
+        Proxy:
           type: http
           behavior: "classical"
-          url: "https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
-          path: ./ruleset/ProxyGFWlist.yaml
-          interval: 86400
-        ProxyMedia:
-          type: http
-          behavior: "classical"
-          url: "https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
-          path: ./ruleset/ProxyMedia.yaml
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml"
+          path: ./ruleset/Proxy.yaml
           interval: 86400
         Apple:
           type: http
           behavior: "classical"
-          # url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
           url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml"
           path: ./ruleset/Apple.yaml
           interval: 86400
         Google:
           type: http
           behavior: "classical"
-          # url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Google.yaml"
           url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
           path: ./ruleset/Google.yaml
           interval: 86400          
@@ -55,23 +46,17 @@ parsers: # array
           url: "https://ghproxy.com/https://raw.githubusercontent.com/showchi/Samples/main/ClashForWindows/ChatGPT.yaml"
           path: ./ruleset/ChatGPT.yaml
           interval: 86400
-        BanEasyListChina:
+        AdBlock:
           type: http
           behavior: "classical"
-          url: "https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
-          path: ./ruleset/BanEasyListChina.yaml
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml"
+          path: ./ruleset/AdBlock.yaml
           interval: 86400
         Bing:
           type: http
           behavior: "classical"
           url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml"
           path: ./ruleset/Bing.yaml
-          interval: 86400
-        China:
-          type: http
-          behavior: "classical"
-          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical.yaml"
-          path: ./ruleset/China.yaml
           interval: 86400
         Spotify:
           type: http
@@ -81,18 +66,16 @@ parsers: # array
           interval: 86400
       # 规则
       prepend-rules:
-          - RULE-SET,BanEasyListChina,REJECT
+          - RULE-SET,AdBlock,AdBlock
           - RULE-SET,ChatGPT,ChatGPT
           - RULE-SET,Google,Google          
           - RULE-SET,Bing,Bing          
           - RULE-SET,Microsoft,Microsoft
           - RULE-SET,Apple,Apple
           - RULE-SET,Spotify,Spotify
-          - RULE-SET,ChinaMedia,DIRECT
           - RULE-SET,China,China
-          - RULE-SET,LocalAreaNetwork,DIRECT
-          - RULE-SET,ProxyGFWlist,Match
-          - RULE-SET,ProxyMedia,Match
+          - RULE-SET,Netflix,Netflix
+          - RULE-SET,Proxy,Match
       # 订阅更新时，手动添加proxy-groups
       prepend-proxy-groups:
         - name: Bing
@@ -106,7 +89,8 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
         - name: Microsoft
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -118,7 +102,8 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
         - name: Apple
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -130,7 +115,8 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
         - name: Spotify
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -142,7 +128,8 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
         - name: China
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -154,7 +141,8 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
         - name: ChatGPT
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -166,7 +154,8 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
         - name: Google
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -178,7 +167,21 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
+        - name: Netflix
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - 🇭🇰
+            - 🇺🇸
+            - 🇯🇵
+            - 🇸🇬
+            - 🇹🇼
+
         - name: Match
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -190,7 +193,17 @@ parsers: # array
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
-            - TW
+            - 🇹🇼
+
+        - name: AdBlock
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - REJECT
+
         - name: 🇺🇸
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -198,6 +211,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+
         - name: 🇭🇰
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -205,6 +219,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+
         - name: 🇯🇵
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -212,13 +227,15 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-        - name: TW
+
+        - name: 🇹🇼
           type: select
           url: "http://www.gstatic.cn/generate_204"
           interval: 600
           t0lerance: 100
           proxies:
             - DIRECT
+
         - name: 🇸🇬
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -226,9 +243,10 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+
       commands:
         - proxy-groups.🇺🇸.proxies=[]proxyNames|US|美国|🇺🇸
         - proxy-groups.🇭🇰.proxies=[]proxyNames|HK|香港|🇭🇰
         - proxy-groups.🇯🇵.proxies=[]proxyNames|JP|日本|🇯🇵
-        - proxy-groups.TW.proxies=[]proxyNames|TW|Taiwan|台湾
+        - proxy-groups.🇹🇼.proxies=[]proxyNames|TW|Taiwan|台湾|🇹🇼
         - proxy-groups.🇸🇬.proxies=[]proxyNames|SG|新加坡|🇸🇬
