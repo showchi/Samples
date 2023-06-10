@@ -85,6 +85,7 @@ parsers: # array
           tolerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -98,6 +99,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -111,6 +113,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -124,6 +127,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -137,6 +141,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -150,6 +155,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -163,6 +169,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -176,6 +183,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
+            - Match
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -189,11 +197,6 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - 🇭🇰
-            - 🇺🇸
-            - 🇯🇵
-            - 🇸🇬
-            - 🇹🇼
 
         - name: AdBlock
           type: select
@@ -245,6 +248,8 @@ parsers: # array
             - DIRECT
 
       commands:
+        - proxy-groups.Match.proxies=[]proxyNames
+        - proxy-groups.Match.proxies.0+DIRECT
         - proxy-groups.🇺🇸.proxies=[]proxyNames|US|美国|🇺🇸
         - proxy-groups.🇭🇰.proxies=[]proxyNames|HK|香港|🇭🇰
         - proxy-groups.🇯🇵.proxies=[]proxyNames|JP|日本|🇯🇵
