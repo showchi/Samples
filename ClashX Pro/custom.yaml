@@ -195,37 +195,37 @@ dns:
 
 
 # 代理组策略
-proxy-groups:
-  - name: Proxy
+proxy-groups: 
+  - name: Global
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT
+
+  - name: Final
     type: select
     use:
       - 机场1
       - 机场2
     proxies:
+      - DIRECT 
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
-
-  - name: MATCH
-    type: select
-    proxies:
-      - Proxy
-      - 🇭🇰
-      - TW
-      - 🇸🇬
-      - 🇯🇵
-      - 🇺🇸
-      - DIRECT 
 
   - name: Apple
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -234,9 +234,9 @@ proxy-groups:
   - name: Amazon
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -245,9 +245,9 @@ proxy-groups:
   - name: China
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -256,9 +256,9 @@ proxy-groups:
   - name: GitHub
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -267,9 +267,9 @@ proxy-groups:
   - name: Google
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -278,9 +278,9 @@ proxy-groups:
   - name: Microsoft
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -289,9 +289,9 @@ proxy-groups:
   - name: Netflix
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -300,9 +300,9 @@ proxy-groups:
   - name: Steam
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -311,9 +311,9 @@ proxy-groups:
   - name: ChatGPT
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -322,9 +322,9 @@ proxy-groups:
   - name: Telegram
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -333,9 +333,9 @@ proxy-groups:
   - name: Twitter
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -344,20 +344,27 @@ proxy-groups:
   - name: YouTube
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
       - DIRECT 
 
+  - name: AdBlock
+    type: select
+    proxies:
+      - Final
+      - REJECT
+      - DIRECT
+
   - name: PayPal
     type: select
     proxies:
-      - Proxy
+      - Final
       - 🇭🇰
-      - TW
+      - 🇹🇼
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
@@ -371,11 +378,11 @@ proxy-groups:
     proxies:
       - DIRECT
 
-  - name: TW
+  - name: 🇹🇼
     type: select
     use:
-      - 机场1TW
-      - 机场2TW
+      - 机场1🇹🇼
+      - 机场2🇹🇼
     proxies:
       - DIRECT
 
@@ -460,19 +467,19 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 300
 
-  机场1TW:
+  机场1🇹🇼:
     type: file
     path: ./机场1.yaml
-    filter: '台|台湾|TW|Taiwan'
+    filter: '🇹🇼|台|台湾|TW|Taiwan'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
 
-  机场2TW:
+  机场2🇹🇼:
     type: file
     path: ./机场2.yaml
-    filter: '台|台湾|TW|Taiwan'
+    filter: '🇹🇼|台|台湾|TW|Taiwan'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -534,7 +541,7 @@ proxy-providers:
 
 # 分流规则  
 rules:
-  - RULE-SET,AdBlock,REJECT
+  - RULE-SET,AdBlock,AdBlock
   - RULE-SET,ChatGPT,ChatGPT
   - RULE-SET,Apple,Apple
   - RULE-SET,Amazon,Amazon
@@ -547,13 +554,19 @@ rules:
   - RULE-SET,Telegram,Telegram 
   - RULE-SET,Twitter,Twitter 
   - RULE-SET,YouTube,YouTube 
+  - RULE-SET,Spotify,Spotify 
   - RULE-SET,PayPal,PayPal
-  - RULE-SET,Proxy,Proxy
+  - RULE-SET,Global,Global
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,China,China
   - DOMAIN-SUFFIX,live.cn,China
   - GEOIP,CN,DIRECT
-  - MATCH,MATCH
+  - MATCH,Final
 
 rule-providers:
+  Global: {type: http, behavior: classical, path: ./Filter/Global, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml, interval: 86400}
+  Direct: {type: http, behavior: classical, path: ./Filter/Direct, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml, interval: 86400}
+  Spotify: {type: http, behavior: classical, path: ./Filter/Spotify, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml, interval: 86400}
   ChatGPT: {type: http, behavior: classical, path: ./Filter/ChatGPT, url: https://ghproxy.com/https://raw.githubusercontent.com/showchi/Samples/main/ClashForWindows/ChatGPT.yaml, interval: 86400}
   AdBlock: {type: http, behavior: classical, path: ./Filter/AdBlock, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml, interval: 86400}
   Apple: {type: http, behavior: classical, path: ./Filter/Apple, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml, interval: 86400}
