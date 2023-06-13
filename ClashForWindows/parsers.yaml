@@ -76,17 +76,45 @@ parsers: # array
           url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml"
           path: ./ruleset/Spotify.yaml
           interval: 86400
+        YouTube:
+          type: http
+          behavior: "classical"
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+          path: ./ruleset/YouTube.yaml
+          interval: 86400
+        EA:
+          type: http
+          behavior: "classical"
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.yaml"
+          path: ./ruleset/EA.yaml
+          interval: 86400
+        Origin:
+          type: http
+          behavior: "classical"
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Origin/Origin.yaml"
+          path: ./ruleset/Origin.yaml
+          interval: 86400
+        Steam:
+          type: http
+          behavior: "classical"
+          url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml"
+          path: ./ruleset/Steam.yaml
+          interval: 86400
       # 规则
       prepend-rules:
           - RULE-SET,AdBlock,AdBlock
           - RULE-SET,ChatGPT,ChatGPT
+          - RULE-SET,Apple,Apple
+          - RULE-SET,YouTube,YouTube
           - RULE-SET,Google,Google          
           - RULE-SET,Bing,Bing          
           - RULE-SET,Microsoft,Microsoft
-          - RULE-SET,Apple,Apple
           - RULE-SET,Spotify,Spotify
           - RULE-SET,Netflix,Netflix
-          - RULE-SET,Proxy,Match
+          - RULE-SET,Steam,Steam
+          - RULE-SET,EA,EA
+          - RULE-SET,Origin,Origin
+          # - RULE-SET,Proxy,Match
           - RULE-SET,Global,Match
           - RULE-SET,Direct,DIRECT
           - RULE-SET,China,China
@@ -190,7 +218,63 @@ parsers: # array
             - 🇸🇬
             - 🇹🇼
 
+        - name: YouTube
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - Match
+            - 🇭🇰
+            - 🇺🇸
+            - 🇯🇵
+            - 🇸🇬
+            - 
+            
         - name: Netflix
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - Match
+            - 🇭🇰
+            - 🇺🇸
+            - 🇯🇵
+            - 🇸🇬
+            - 🇹🇼
+            
+        - name: Steam
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - Match
+            - 🇭🇰
+            - 🇺🇸
+            - 🇯🇵
+            - 🇸🇬
+            - 🇹🇼
+            
+        - name: EA
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - Match
+            - 🇭🇰
+            - 🇺🇸
+            - 🇯🇵
+            - 🇸🇬
+            - 🇹🇼
+            
+        - name: Origin
           type: select
           url: "http://www.gstatic.cn/generate_204"
           interval: 600

@@ -286,6 +286,17 @@ proxy-groups:
       - 🇺🇸
       - DIRECT 
 
+  - name: Bing
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT 
+
   - name: Netflix
     type: select
     proxies:
@@ -342,6 +353,28 @@ proxy-groups:
       - DIRECT 
 
   - name: YouTube
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT 
+
+  - name: EA
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT 
+
+  - name: Origin
     type: select
     proxies:
       - Final
@@ -546,16 +579,19 @@ rules:
   - RULE-SET,Apple,Apple
   - RULE-SET,Amazon,Amazon
   - RULE-SET,GitHub,GitHub
+  - RULE-SET,YouTube,YouTube 
   - RULE-SET,Google,Google
-  - DOMAIN-KEYWORD,bing,Microsoft
+  # - DOMAIN-KEYWORD,bing,Microsoft
+  - RULE-SET,Bing,Bing
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Netflix,Netflix 
   - RULE-SET,Steam,Steam
   - RULE-SET,Telegram,Telegram 
   - RULE-SET,Twitter,Twitter 
-  - RULE-SET,YouTube,YouTube 
   - RULE-SET,Spotify,Spotify 
   - RULE-SET,PayPal,PayPal
+  - RULE-SET,EA,EA
+  - RULE-SET,Origin,Origin
   - RULE-SET,Global,Global
   - RULE-SET,Direct,DIRECT
   - RULE-SET,China,China
@@ -564,6 +600,9 @@ rules:
   - MATCH,Final
 
 rule-providers:
+  EA: {type: http, behavior: classical, path: ./Filter/EA, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.yaml, interval: 86400}
+  Origin: {type: http, behavior: classical, path: ./Filter/Origin, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Origin/Origin.yaml, interval: 86400}
+  Bing: {type: http, behavior: classical, path: ./Filter/Bing, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml, interval: 86400}
   Global: {type: http, behavior: classical, path: ./Filter/Global, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml, interval: 86400}
   Direct: {type: http, behavior: classical, path: ./Filter/Direct, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml, interval: 86400}
   Spotify: {type: http, behavior: classical, path: ./Filter/Spotify, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml, interval: 86400}
