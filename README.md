@@ -28,4 +28,6 @@
 
 [clash for windows parsers sample2](https://gist.github.com/ForLovelj/484c48d33eb966a5528155875e432160)
 
+[NobyDa modules](https://github.com/NobyDa/Script)
 
+[Surge conf and module](https://github.com/Rabbit-Spec/Surge)
