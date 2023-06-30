@@ -1,9 +1,13 @@
+# NAME: ChatGPT
+# AUTHOR: showchi
+# REPO: https://github.com/showchi/Samples
+# UPDATED: 2023-06-29 14:49:58
+# DOMAIN-SUFFIX: 6
+# TOTAL: 6
 payload:
-  # 内容：ChatGPT
-  # 数量：6条
-- DOMAIN-SUFFIX,openai.com
-- DOMAIN-SUFFIX,chat.openai.com
-- DOMAIN-SUFFIX,challenges.cloudflare.com
-- DOMAIN-SUFFIX,auth0.openai.com
-- DOMAIN-SUFFIX,platform.openai.com
-- DOMAIN-SUFFIX,ai.com
+  - DOMAIN-SUFFIX,openai.com
+  - DOMAIN-SUFFIX,chat.openai.com
+  - DOMAIN-SUFFIX,challenges.cloudflare.com
+  - DOMAIN-SUFFIX,auth0.openai.com
+  - DOMAIN-SUFFIX,platform.openai.com
+  - DOMAIN-SUFFIX,ai.com
