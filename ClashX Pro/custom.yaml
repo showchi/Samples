@@ -330,6 +330,17 @@ proxy-groups:
       - 🇺🇸
       - DIRECT
 
+  - name: OpenAI
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT
+
   - name: Telegram
     type: select
     proxies:
@@ -576,6 +587,7 @@ proxy-providers:
 rules:
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,ChatGPT,ChatGPT
+  - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Apple,Apple
   - RULE-SET,Amazon,Amazon
   - RULE-SET,GitHub,GitHub
@@ -607,6 +619,7 @@ rule-providers:
   Direct: {type: http, behavior: classical, path: ./Filter/Direct, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml, interval: 86400}
   Spotify: {type: http, behavior: classical, path: ./Filter/Spotify, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml, interval: 86400}
   ChatGPT: {type: http, behavior: classical, path: ./Filter/ChatGPT, url: https://ghproxy.com/https://raw.githubusercontent.com/showchi/Samples/main/RuleSet/ChatGPT.yaml, interval: 86400}
+  OpenAI: {type: http, behavior: classical, path: ./Filter/OpenAI, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml, interval: 86400}
   AdBlock: {type: http, behavior: classical, path: ./Filter/AdBlock, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml, interval: 86400}
   Apple: {type: http, behavior: classical, path: ./Filter/Apple, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml, interval: 86400}
   Amazon: {type: http, behavior: classical, path: ./Filter/Amazon, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.yaml, interval: 86400}
