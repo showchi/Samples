@@ -137,7 +137,7 @@ parsers: # array
             - 🇯🇵
             - 🇸🇬
             - 🇹🇼
-            
+
         - name: Netflix
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -151,7 +151,7 @@ parsers: # array
             - 🇯🇵
             - 🇸🇬
             - 🇹🇼
-            
+
         - name: Steam
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -165,7 +165,7 @@ parsers: # array
             - 🇯🇵
             - 🇸🇬
             - 🇹🇼
-            
+
         - name: EA
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -179,7 +179,7 @@ parsers: # array
             - 🇯🇵
             - 🇸🇬
             - 🇹🇼
-            
+
         - name: Origin
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -259,7 +259,7 @@ parsers: # array
         - proxy-groups.🇯🇵.proxies=[]proxyNames|JP|日本|🇯🇵
         - proxy-groups.🇹🇼.proxies=[]proxyNames|TW|Taiwan|台湾|🇹🇼
         - proxy-groups.🇸🇬.proxies=[]proxyNames|SG|新加坡|🇸🇬
-        
+
       # 引入第三方规则集
       mix-rule-providers:
         Microsoft:
@@ -309,13 +309,13 @@ parsers: # array
           behavior: classical
           url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
           path: ./ruleset/Google.yaml
-          interval: 86400          
+          interval: 86400
         ChatGPT:
           type: http
           behavior: classical
           url: "https://ghproxy.com/https://raw.githubusercontent.com/showchi/Samples/main/RuleSet/ChatGPT.yaml"
           path: ./ruleset/ChatGPT.yaml
-          interval: 86400          
+          interval: 86400
         OpenAI:
           type: http
           behavior: classical
@@ -372,8 +372,8 @@ parsers: # array
         - RULE-SET,OpenAI,OpenAI
         - RULE-SET,Apple,Apple
         - RULE-SET,YouTube,YouTube
-        - RULE-SET,Google,Google          
-        - RULE-SET,Bing,Bing          
+        - RULE-SET,Google,Google
+        - RULE-SET,Bing,Bing
         - RULE-SET,Microsoft,Microsoft
         - RULE-SET,Spotify,Spotify
         - RULE-SET,Netflix,Netflix

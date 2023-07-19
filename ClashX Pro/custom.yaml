@@ -1,4 +1,4 @@
-# 
+#
 # Update:2023.03.27
 # ------------------
 # 规则库：https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash
@@ -28,7 +28,6 @@ log-level: info
 
 # clash 的 RESTful API
 external-controller: 0.0.0.0:9090
-
 
 # 您可以将静态网页资源（如 clash-dashboard）放置在一个目录中，clash 将会服务于 `${API}/ui`
 # 参数应填写配置目录的相对路径或绝对路径。
@@ -193,9 +192,8 @@ dns:
       - +.googletagmanager.com
       - +.googletagservices.com
 
-
 # 代理组策略
-proxy-groups: 
+proxy-groups:
   - name: Global
     type: select
     proxies:
@@ -213,7 +211,7 @@ proxy-groups:
       - 机场1
       - 机场2
     proxies:
-      - DIRECT 
+      - DIRECT
       - 🇭🇰
       - 🇹🇼
       - 🇸🇬
@@ -229,7 +227,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Amazon
     type: select
@@ -240,7 +238,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: China
     type: select
@@ -251,7 +249,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: GitHub
     type: select
@@ -262,7 +260,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Google
     type: select
@@ -273,7 +271,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Microsoft
     type: select
@@ -284,7 +282,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Bing
     type: select
@@ -295,7 +293,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Netflix
     type: select
@@ -306,7 +304,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Steam
     type: select
@@ -317,7 +315,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: ChatGPT
     type: select
@@ -350,7 +348,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Twitter
     type: select
@@ -361,7 +359,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: YouTube
     type: select
@@ -372,7 +370,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: EA
     type: select
@@ -383,7 +381,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: Origin
     type: select
@@ -394,7 +392,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: AdBlock
     type: select
@@ -412,7 +410,7 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
-      - DIRECT 
+      - DIRECT
 
   - name: 🇭🇰
     type: select
@@ -454,8 +452,6 @@ proxy-groups:
     proxies:
       - DIRECT
 
-
-
 proxy-providers:
   # 可多机场，下面以两机场为例：
   # 1、单独订阅机场1和机场2，并把机场1和机场2的config name重新设置为机场1和机场2（分区操作基于本地配置文件，方便之后的分区操作），下载配置文件到本地默认文件夹；
@@ -496,7 +492,7 @@ proxy-providers:
   机场1🇭🇰:
     type: file
     path: ./机场1.yaml
-    filter: '🇭🇰|HK|香港|港|Hongkong'
+    filter: "🇭🇰|HK|香港|港|Hongkong"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -505,7 +501,7 @@ proxy-providers:
   机场2🇭🇰:
     type: file
     path: ./机场2.yaml
-    filter: '🇭🇰|HK|香港|港|Hongkong'
+    filter: "🇭🇰|HK|香港|港|Hongkong"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -514,7 +510,7 @@ proxy-providers:
   机场1🇹🇼:
     type: file
     path: ./机场1.yaml
-    filter: '🇹🇼|台|台湾|TW|Taiwan'
+    filter: "🇹🇼|台|台湾|TW|Taiwan"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -523,7 +519,7 @@ proxy-providers:
   机场2🇹🇼:
     type: file
     path: ./机场2.yaml
-    filter: '🇹🇼|台|台湾|TW|Taiwan'
+    filter: "🇹🇼|台|台湾|TW|Taiwan"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -532,7 +528,7 @@ proxy-providers:
   机场1🇸🇬:
     type: file
     path: ./机场1.yaml
-    filter: '🇸🇬|狮城|新|新加坡|SG'
+    filter: "🇸🇬|狮城|新|新加坡|SG"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -541,7 +537,7 @@ proxy-providers:
   机场2🇸🇬:
     type: file
     path: ./机场2.yaml
-    filter: '🇸🇬|狮城|新|新加坡|SG'
+    filter: "🇸🇬|狮城|新|新加坡|SG"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -550,7 +546,7 @@ proxy-providers:
   机场1🇯🇵:
     type: file
     path: ./机场1.yaml
-    filter: '🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP'
+    filter: "🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -559,7 +555,7 @@ proxy-providers:
   机场2🇯🇵:
     type: file
     path: ./机场2.yaml
-    filter: '🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP'
+    filter: "🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -568,22 +564,22 @@ proxy-providers:
   机场1🇺🇸:
     type: file
     path: ./机场1.yaml
-    filter: '🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us'
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-      
-  机场2🇺🇸:
-    type: file
-    path: ./机场2.yaml
-    filter: '🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us'
+    filter: "🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
 
-# 分流规则  
+  机场2🇺🇸:
+    type: file
+    path: ./机场2.yaml
+    filter: "🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+
+# 分流规则
 rules:
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,ChatGPT,ChatGPT
@@ -591,16 +587,16 @@ rules:
   - RULE-SET,Apple,Apple
   - RULE-SET,Amazon,Amazon
   - RULE-SET,GitHub,GitHub
-  - RULE-SET,YouTube,YouTube 
+  - RULE-SET,YouTube,YouTube
   - RULE-SET,Google,Google
   # - DOMAIN-KEYWORD,bing,Microsoft
   - RULE-SET,Bing,Bing
   - RULE-SET,Microsoft,Microsoft
-  - RULE-SET,Netflix,Netflix 
+  - RULE-SET,Netflix,Netflix
   - RULE-SET,Steam,Steam
-  - RULE-SET,Telegram,Telegram 
-  - RULE-SET,Twitter,Twitter 
-  - RULE-SET,Spotify,Spotify 
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Twitter,Twitter
+  - RULE-SET,Spotify,Spotify
   - RULE-SET,PayPal,PayPal
   - RULE-SET,EA,EA
   - RULE-SET,Origin,Origin
@@ -612,25 +608,179 @@ rules:
   - MATCH,Final
 
 rule-providers:
-  EA: {type: http, behavior: classical, path: ./Filter/EA, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.yaml, interval: 86400}
-  Origin: {type: http, behavior: classical, path: ./Filter/Origin, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Origin/Origin.yaml, interval: 86400}
-  Bing: {type: http, behavior: classical, path: ./Filter/Bing, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml, interval: 86400}
-  Global: {type: http, behavior: classical, path: ./Filter/Global, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml, interval: 86400}
-  Direct: {type: http, behavior: classical, path: ./Filter/Direct, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml, interval: 86400}
-  Spotify: {type: http, behavior: classical, path: ./Filter/Spotify, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml, interval: 86400}
-  ChatGPT: {type: http, behavior: classical, path: ./Filter/ChatGPT, url: https://ghproxy.com/https://raw.githubusercontent.com/showchi/Samples/main/RuleSet/ChatGPT.yaml, interval: 86400}
-  OpenAI: {type: http, behavior: classical, path: ./Filter/OpenAI, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml, interval: 86400}
-  AdBlock: {type: http, behavior: classical, path: ./Filter/AdBlock, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml, interval: 86400}
-  Apple: {type: http, behavior: classical, path: ./Filter/Apple, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml, interval: 86400}
-  Amazon: {type: http, behavior: classical, path: ./Filter/Amazon, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.yaml, interval: 86400}
-  China: {type: http, behavior: classical, path: ./Filter/China, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical.yaml, interval: 86400}
-  GitHub: {type: http, behavior: classical, path: ./Filter/GitHub, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml, interval: 86400}
-  Google: {type: http, behavior: classical, path: ./Filter/Google, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml, interval: 86400}
-  Microsoft: {type: http, behavior: classical, path: ./Filter/Microsoft, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml, interval: 86400}
-  Netflix: {type: http, behavior: classical, path: ./Filter/Netflix, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml, interval: 86400} 
-  Steam: {type: http, behavior: classical, path: ./Filter/Steam, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml, interval: 86400}
-  Telegram: {type: http, behavior: classical, path: ./Filter/Telegram, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml, interval: 86400}
-  Twitter: {type: http, behavior: classical, path: ./Filter/Twitter, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml, interval: 86400}
-  YouTube: {type: http, behavior: classical, path: ./Filter/YouTube, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml, interval: 86400}
-  PayPal: {type: http, behavior: classical, path: ./Filter/PayPal, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.yaml, interval: 86400}
-  Proxy: {type: http, behavior: classical, path: ./Filter/Proxy, url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml, interval: 86400}
+  EA:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/EA,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.yaml,
+      interval: 86400,
+    }
+  Origin:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Origin,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Origin/Origin.yaml,
+      interval: 86400,
+    }
+  Bing:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Bing,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml,
+      interval: 86400,
+    }
+  Global:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Global,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml,
+      interval: 86400,
+    }
+  Direct:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Direct,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml,
+      interval: 86400,
+    }
+  Spotify:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Spotify,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml,
+      interval: 86400,
+    }
+  ChatGPT:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/ChatGPT,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/showchi/Samples/main/RuleSet/ChatGPT.yaml,
+      interval: 86400,
+    }
+  OpenAI:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/OpenAI,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml,
+      interval: 86400,
+    }
+  AdBlock:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/AdBlock,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml,
+      interval: 86400,
+    }
+  Apple:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Apple,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml,
+      interval: 86400,
+    }
+  Amazon:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Amazon,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.yaml,
+      interval: 86400,
+    }
+  China:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/China,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Classical.yaml,
+      interval: 86400,
+    }
+  GitHub:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/GitHub,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml,
+      interval: 86400,
+    }
+  Google:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Google,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml,
+      interval: 86400,
+    }
+  Microsoft:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Microsoft,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml,
+      interval: 86400,
+    }
+  Netflix:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Netflix,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml,
+      interval: 86400,
+    }
+  Steam:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Steam,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml,
+      interval: 86400,
+    }
+  Telegram:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Telegram,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml,
+      interval: 86400,
+    }
+  Twitter:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Twitter,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml,
+      interval: 86400,
+    }
+  YouTube:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/YouTube,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml,
+      interval: 86400,
+    }
+  PayPal:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/PayPal,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.yaml,
+      interval: 86400,
+    }
+  Proxy:
+    {
+      type: http,
+      behavior: classical,
+      path: ./Filter/Proxy,
+      url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml,
+      interval: 86400,
+    }
