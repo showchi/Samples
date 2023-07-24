@@ -25,6 +25,8 @@
 
 # Modules
 
+[deezertidal](https://github.com/deezertidal/shadowrocket-rules)
+
 [NobyDa modules](https://github.com/NobyDa/Script)
 
 [Surge conf and module](https://github.com/Rabbit-Spec/Surge)
@@ -38,6 +40,10 @@
 [BiliUniverse 哔哩万象](https://github.com/BiliUniverse)
 
 [🍟 GetSomeFries](https://github.com/VirgilClyne/GetSomeFries)
+
+[京东比价for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/JDPrice.sgmodule)
+
+[Google重定向for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/GoogleRedirect.sgmodule)
 
 # How to use
 
