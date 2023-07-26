@@ -45,7 +45,9 @@
 
 [Google Redirect for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/GoogleRedirect.module)
 
-[Youtube Ad Block for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/YoutubeAdBlock.module)
+[Youtube AdBlock for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/YoutubeAdBlock.module)
+
+[Wechat AdBlock for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/WechatAdBlock.sgmodule)
 
 # How to use
 

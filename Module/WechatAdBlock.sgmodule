@@ -1,0 +1,14 @@
+#!name=Wechat ADBlock
+#!desc=微信公众号广告屏蔽
+#!system=ios
+
+[URL Rewrite]
+^https?:\/\/.+\.weixin\.qq\.com\/.+report - reject-dict
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/.+monitor\? - reject-dict
+^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedarticle - reject-img
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/.+ad\? - reject-img
+^https?:\/\/.+\.weixin\.qq\.com\/mp\/cps_product_info - reject-img
+
+[MITM]
+hostname = %APPEND% *.weixin.qq.com
+
