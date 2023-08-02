@@ -192,19 +192,61 @@ dns:
       - +.googletagmanager.com
       - +.googletagservices.com
 
+proxies:
+  - name: "☁️Cloudflare①"
+    type: wireguard
+    server: 162.159.192.113
+    port: 928
+    ip: 172.16.0.2
+    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    dns: [1.1.1.1, 8.8.8.8]
+    mtu: 1420
+    udp: true
+    remote-dns-resolve: true
+
+  - name: "☁️Cloudflare②"
+    type: wireguard
+    server: 162.159.192.37
+    port: 864
+    ip: 172.16.0.2
+    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    dns: [1.1.1.1, 8.8.8.8]
+    mtu: 1420
+    udp: true
+    remote-dns-resolve: true
+
+  - name: "☁️Cloudflare③"
+    type: wireguard
+    server: 162.159.195.207
+    port: 7152
+    ip: 172.16.0.2
+    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    dns: [1.1.1.1, 8.8.8.8]
+    mtu: 1420
+    udp: true
+    remote-dns-resolve: true
+
+  - name: "☁️Cloudflare④"
+    type: wireguard
+    server: 162.159.192.132
+    port: 864
+    ip: 172.16.0.2
+    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    dns: [1.1.1.1, 8.8.8.8]
+    mtu: 1420
+    udp: true
+    remote-dns-resolve: true 
+
 # 代理组策略
 proxy-groups:
-  - name: Global
-    type: select
-    proxies:
-      - Final
-      - 🇭🇰
-      - 🇹🇼
-      - 🇸🇬
-      - 🇯🇵
-      - 🇺🇸
-      - DIRECT
-
   - name: Final
     type: select
     use:
@@ -217,6 +259,18 @@ proxy-groups:
       - 🇸🇬
       - 🇯🇵
       - 🇺🇸
+      - ☁️Cloudflare
+      
+  - name: Global
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT
 
   - name: Apple
     type: select
@@ -451,6 +505,16 @@ proxy-groups:
       - 机场2🇺🇸
     proxies:
       - DIRECT
+
+  - name: ☁️Cloudflare
+    type: url-test
+    proxies:
+      - ☁️Cloudflare①
+      - ☁️Cloudflare②
+      - ☁️Cloudflare③
+      - ☁️Cloudflare④
+    url: http://1.1.1.1/generate_204
+    interval: 600
 
 proxy-providers:
   # 可多机场，下面以两机场为例：
