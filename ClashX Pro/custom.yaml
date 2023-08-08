@@ -43,7 +43,8 @@ dns:
   listen: 0.0.0.0:53
   default-nameserver:
     - 223.5.5.5
-    - 8.8.4.4
+    - 114.114.114.114
+    - 119.29.29.29
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
@@ -144,15 +145,12 @@ dns:
     - +.media.dssott.com
     - +.pvp.net
   nameserver:
-    - 114.114.114.114
-    - tls://223.5.5.5:853
-    - tls://223.6.6.6:853
-    - tls://1.12.12.12
-    - tls://120.53.53.53
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   fallback:
     - https://1.0.0.1/dns-query
+    - https://8.8.4.4/dns-query
     - https://public.dns.iij.jp/dns-query
-    - tls://8.8.4.4:853
   fallback-filter:
     geoip: false
     ipcidr:
@@ -193,54 +191,67 @@ dns:
       - +.googletagservices.com
 
 proxies:
-  - name: "☁️Cloudflare①"
+  - name: ☁️Cloudflare①
     type: wireguard
-    server: 162.159.192.113
-    port: 928
-    ip: 172.16.0.2
-    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
-    private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    dns: [1.1.1.1, 8.8.8.8]
-    mtu: 1420
-    udp: true
-    remote-dns-resolve: true
-
-  - name: "☁️Cloudflare②"
-    type: wireguard
-    server: 162.159.192.37
+    server: 188.114.96.170
     port: 864
     ip: 172.16.0.2
-    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    dns: [1.1.1.1, 8.8.8.8]
+    dns:
+      - 1.0.0.1
+      - 8.8.4.4
+      - 2606:4700:4700::1001
+      - 2001:4860:4860::8844
     mtu: 1420
     udp: true
     remote-dns-resolve: true
-
-  - name: "☁️Cloudflare③"
+  - name: ☁️Cloudflare②
     type: wireguard
-    server: 162.159.195.207
-    port: 7152
+    server: 162.159.192.240
+    port: 939
     ip: 172.16.0.2
-    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    dns: [1.1.1.1, 8.8.8.8]
+    dns:
+      - 1.0.0.1
+      - 8.8.4.4
+      - 2606:4700:4700::1001
+      - 2001:4860:4860::8844
     mtu: 1420
     udp: true
     remote-dns-resolve: true
-
-  - name: "☁️Cloudflare④"
+  - name: ☁️Cloudflare③
     type: wireguard
-    server: 162.159.192.132
+    server: 162.159.195.213
     port: 864
     ip: 172.16.0.2
-    # ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    dns: [1.1.1.1, 8.8.8.8]
+    dns:
+      - 1.0.0.1
+      - 8.8.4.4
+      - 2606:4700:4700::1001
+      - 2001:4860:4860::8844
+    mtu: 1420
+    udp: true
+    remote-dns-resolve: true
+  - name: ☁️Cloudflare④
+    type: wireguard
+    server: 188.114.99.201
+    port: 864
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
+    private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    dns:
+      - 1.0.0.1
+      - 8.8.4.4
+      - 2606:4700:4700::1001
+      - 2001:4860:4860::8844
     mtu: 1420
     udp: true
     remote-dns-resolve: true 
@@ -426,6 +437,17 @@ proxy-groups:
       - 🇺🇸
       - DIRECT
 
+  - name: Spotify
+    type: select
+    proxies:
+      - Final
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT
+
   - name: EA
     type: select
     proxies:
@@ -515,6 +537,7 @@ proxy-groups:
       - ☁️Cloudflare④
     url: http://1.1.1.1/generate_204
     interval: 600
+    tolerance: 150
 
 proxy-providers:
   # 可多机场，下面以两机场为例：
@@ -643,8 +666,15 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 300
 
+script:
+  engine: expr
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+    curl: resolve_process_name() == 'curl'
+
 # 分流规则
 rules:
+  - SCRIPT,quic,REJECT
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,ChatGPT,ChatGPT
   - RULE-SET,OpenAI,OpenAI
@@ -653,7 +683,6 @@ rules:
   - RULE-SET,GitHub,GitHub
   - RULE-SET,YouTube,YouTube
   - RULE-SET,Google,Google
-  # - DOMAIN-KEYWORD,bing,Microsoft
   - RULE-SET,Bing,Bing
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Netflix,Netflix
@@ -665,10 +694,10 @@ rules:
   - RULE-SET,EA,EA
   - RULE-SET,Origin,Origin
   - RULE-SET,Global,Global
-  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Direct,China
   - RULE-SET,China,China
   - DOMAIN-SUFFIX,live.cn,China
-  - GEOIP,CN,DIRECT
+  - GEOIP,CN,China
   - MATCH,Final
 
 rule-providers:
