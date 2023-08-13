@@ -12,6 +12,23 @@ parsers: # array
     yaml:
       # 订阅更新时，手动添加proxy-groups
       prepend-proxy-groups:
+        - name: Final
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+            - PROXY
+
+        - name: PROXY
+          type: select
+          url: "http://www.gstatic.cn/generate_204"
+          interval: 600
+          t0lerance: 100
+          proxies:
+            - DIRECT
+
         - name: Bing
           type: select
           url: "http://www.gstatic.cn/generate_204"
@@ -19,7 +36,7 @@ parsers: # array
           tolerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -33,7 +50,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -47,7 +64,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -61,21 +78,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
-            - 🇭🇰
-            - 🇺🇸
-            - 🇯🇵
-            - 🇸🇬
-            - 🇹🇼
-
-        - name: China
-          type: select
-          url: "http://www.gstatic.cn/generate_204"
-          interval: 600
-          t0lerance: 100
-          proxies:
-            - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -89,7 +92,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -103,7 +106,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -117,7 +120,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -131,7 +134,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -145,7 +148,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -159,7 +162,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -173,7 +176,7 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
@@ -187,20 +190,26 @@ parsers: # array
           t0lerance: 100
           proxies:
             - DIRECT
-            - Match
+            - PROXY
             - 🇭🇰
             - 🇺🇸
             - 🇯🇵
             - 🇸🇬
             - 🇹🇼
 
-        - name: Match
+        - name: China
           type: select
           url: "http://www.gstatic.cn/generate_204"
           interval: 600
           t0lerance: 100
           proxies:
             - DIRECT
+            - PROXY
+            - 🇭🇰
+            - 🇺🇸
+            - 🇯🇵
+            - 🇸🇬
+            - 🇹🇼
 
         - name: AdBlock
           type: select
@@ -252,8 +261,8 @@ parsers: # array
             - DIRECT
 
       commands:
-        - proxy-groups.Match.proxies=[]proxyNames
-        - proxy-groups.Match.proxies.0+DIRECT
+        - proxy-groups.PROXY.proxies=[]proxyNames
+        - proxy-groups.PROXY.proxies.0+DIRECT
         - proxy-groups.🇺🇸.proxies=[]proxyNames|US|美国|🇺🇸
         - proxy-groups.🇭🇰.proxies=[]proxyNames|HK|香港|🇭🇰
         - proxy-groups.🇯🇵.proxies=[]proxyNames|JP|日本|🇯🇵
@@ -380,9 +389,9 @@ parsers: # array
         - RULE-SET,Steam,Steam
         - RULE-SET,EA,EA
         - RULE-SET,Origin,Origin
-        - RULE-SET,Global,Match
-        - RULE-SET,Direct,DIRECT
+        - RULE-SET,Global,PROXY
+        - RULE-SET,Direct,China
         - RULE-SET,China,China
-        - GEOIP,,DIRECT
-        - GEOIP,CN,DIRECT
-        - MATCH,Match
+        - GEOIP,,China
+        - GEOIP,CN,China
+        - MATCH,Final
