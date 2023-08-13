@@ -702,6 +702,7 @@ rules:
   - RULE-SET,Global,Global
   - RULE-SET,Direct,China
   - RULE-SET,China,China
+  - GEOIP,,China
   - GEOIP,CN,China
   - MATCH,Final
 

@@ -85,11 +85,13 @@ netsh interface ipv4 delete route 0.0.0.0/0 "wg0"
 # add IPV6 route
 powershell -command "$wgInterface = Get-NetConnectionProfile -Name 'wg0'; netsh interface ipv6 add route prefix= ::0/0 interface= $wgInterface.name metric= 205 store= active"
 
+# OR
 netsh interface ipv6 add route prefix= ::0/0 interface= wg0 metric= 205 store= active
 
 # remove IPV6 route
 powershell -command "$wgInterface = Get-NetConnectionProfile -Name 'wg0'; netsh interface ipv6 delete route prefix= ::0/0 interface= $wgInterface.name"
 
+# OR
 netsh interface ipv6 delete route prefix= ::0/0 interface= wg0
 ```
 ##### CMD
