@@ -147,6 +147,34 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+  nameserver-policy:
+    +.tmall.com: 223.5.5.5
+    +.taobao.com: 223.5.5.5
+    +.alicdn.com: 223.5.5.5
+    +.aliyun.com: 223.5.5.5
+    +.alipay.com: 223.5.5.5
+    +.alibaba.com: 223.5.5.5
+    +.qq.com: 119.29.29.29
+    +.tencent.com: 119.29.29.29
+    +.weixin.com: 119.29.29.29
+    +.qpic.cn: 119.29.29.29
+    +.jd.com: 119.29.29.29
+    +.bilibili.com: 119.29.29.29
+    +.hdslb.com: 119.29.29.29
+    +.163.com: 119.29.29.29
+    +.126.com: 119.29.29.29
+    +.126.net: 119.29.29.29
+    +.127.net: 119.29.29.29
+    +.netease.com: 119.29.29.29
+    +.baidu.com: 223.5.5.5
+    +.bdstatic.com: 223.5.5.5
+    +.bilivideo.+: 119.29.29.29
+    +.iqiyi.com: 119.29.29.29
+    +.douyinvod.com: 180.184.1.1
+    +.douyin.com: 180.184.1.1
+    +.douyincdn.com: 180.184.1.1
+    +.douyinpic.com: 180.184.1.1
+    +.feishu.cn: 180.184.1.1
   fallback:
     - https://dns.cloudflare.com/dns-query
     - https://dns.google/dns-query
@@ -201,6 +229,7 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     dns:
       - 1.0.0.1
+      - 162.159.36.1
       - 8.8.4.4
       - 2606:4700:4700::1001
       - 2001:4860:4860::8844
@@ -217,6 +246,7 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     dns:
       - 1.0.0.1
+      - 162.159.36.1
       - 8.8.4.4
       - 2606:4700:4700::1001
       - 2001:4860:4860::8844
@@ -233,6 +263,7 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     dns:
       - 1.0.0.1
+      - 162.159.36.1
       - 8.8.4.4
       - 2606:4700:4700::1001
       - 2001:4860:4860::8844
@@ -249,6 +280,7 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     dns:
       - 1.0.0.1
+      - 162.159.36.1
       - 8.8.4.4
       - 2606:4700:4700::1001
       - 2001:4860:4860::8844
@@ -269,6 +301,7 @@ proxy-groups:
     use:
       - 机场1
       - 机场2
+      - 机场3
     proxies:
       - DIRECT
       - 🇭🇰
@@ -277,6 +310,7 @@ proxy-groups:
       - 🇯🇵
       - 🇺🇸
       - ☁️Cloudflare
+      - Wireguard
 
   - name: Global
     type: select
@@ -476,13 +510,6 @@ proxy-groups:
       - 🇺🇸
       - DIRECT
 
-  - name: AdBlock
-    type: select
-    proxies:
-      - PROXY
-      - REJECT
-      - DIRECT
-
   - name: PayPal
     type: select
     proxies:
@@ -494,45 +521,63 @@ proxy-groups:
       - 🇺🇸
       - DIRECT
 
+  - name: AdBlock
+    type: select
+    proxies:
+      - PROXY
+      - REJECT
+      - DIRECT
+      
   - name: 🇭🇰
     type: select
     use:
-      - 机场1🇭🇰
-      - 机场2🇭🇰
-    proxies:
-      - DIRECT
-
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇭🇰|HK|香港|港|Hongkong
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 150
   - name: 🇹🇼
     type: select
     use:
-      - 机场1🇹🇼
-      - 机场2🇹🇼
-    proxies:
-      - DIRECT
-
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇹🇼|台|台湾|TW|Taiwan
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 150
   - name: 🇸🇬
     type: select
     use:
-      - 机场1🇸🇬
-      - 机场2🇸🇬
-    proxies:
-      - DIRECT
-
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇸🇬|狮城|新|新加坡|SG
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 150
   - name: 🇯🇵
     type: select
     use:
-      - 机场1🇯🇵
-      - 机场2🇯🇵
-    proxies:
-      - DIRECT
-
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP  
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 150
   - name: 🇺🇸
     type: select
     use:
-      - 机场1🇺🇸
-      - 机场2🇺🇸
-    proxies:
-      - DIRECT
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 150
 
   - name: ☁️Cloudflare
     type: url-test
@@ -541,9 +586,15 @@ proxy-groups:
       - ☁️Cloudflare②
       - ☁️Cloudflare③
       - ☁️Cloudflare④
-    url: http://1.1.1.1/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 600
     tolerance: 150
+
+  - name: Wireguard
+    type: select
+    interface-name: wg0
+    proxies:
+      - DIRECT
 
 proxy-providers:
   # 可多机场，下面以两机场为例：
@@ -569,7 +620,7 @@ proxy-providers:
   #   health-check:
   #     enable: true
   #     url: http://www.gstatic.com/generate_204
-  #     interval: 300
+  #     interval: 36000
 
   机场2:
     type: http
@@ -582,95 +633,16 @@ proxy-providers:
       # lazy: true
       url: http://www.gstatic.com/generate_204
 
-  机场1🇭🇰:
-    type: file
-    path: ./机场1.yaml
-    filter: "🇭🇰|HK|香港|港|Hongkong"
+  机场3:
+    type: http
+    url: 机场3 Clash订阅链接
+    interval: 86400
+    path: ./机场3.yaml
     health-check:
       enable: true
+      interval: 600
+      # lazy: true
       url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场2🇭🇰:
-    type: file
-    path: ./机场2.yaml
-    filter: "🇭🇰|HK|香港|港|Hongkong"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场1🇹🇼:
-    type: file
-    path: ./机场1.yaml
-    filter: "🇹🇼|台|台湾|TW|Taiwan"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场2🇹🇼:
-    type: file
-    path: ./机场2.yaml
-    filter: "🇹🇼|台|台湾|TW|Taiwan"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场1🇸🇬:
-    type: file
-    path: ./机场1.yaml
-    filter: "🇸🇬|狮城|新|新加坡|SG"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场2🇸🇬:
-    type: file
-    path: ./机场2.yaml
-    filter: "🇸🇬|狮城|新|新加坡|SG"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场1🇯🇵:
-    type: file
-    path: ./机场1.yaml
-    filter: "🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场2🇯🇵:
-    type: file
-    path: ./机场2.yaml
-    filter: "🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场1🇺🇸:
-    type: file
-    path: ./机场1.yaml
-    filter: "🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  机场2🇺🇸:
-    type: file
-    path: ./机场2.yaml
-    filter: "🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
 
 script:
   engine: expr
@@ -703,7 +675,6 @@ rules:
   - RULE-SET,Direct,China
   - RULE-SET,China,China
   - RULE-SET,LAN,China
-  - GEOIP,,China
   - GEOIP,CN,China
   - MATCH,Final
 

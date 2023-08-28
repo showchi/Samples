@@ -267,6 +267,7 @@ proxy-groups:
       - DIRECT
       - PROXY
   - name: PROXY
+    type: select
     use:
       - 机场1
       - 机场2
@@ -279,7 +280,6 @@ proxy-groups:
       - 🇺🇸
       - ☁️Cloudflare
       - Wireguard
-    type: select
   - name: Global
     type: select
     proxies:
@@ -498,21 +498,21 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.cn/generate_204
-      interval: 300
+      interval: 36000
   机场2:
     type: file
     path: ./profiles/1661178999014.yml
     health-check:
       enable: true
       url: http://www.gstatic.cn/generate_204
-      interval: 300
+      interval: 36000
   机场3:
     type: file
     path: ./profiles/1617367170896.yml
     health-check:
       enable: true
       url: http://www.gstatic.cn/generate_204
-      interval: 300
+      interval: 36000
 script:
   engine: expr
   shortcuts:

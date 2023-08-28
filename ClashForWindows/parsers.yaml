@@ -376,13 +376,13 @@ parsers: # array
         LAN:
           type: http
           behavior: classical
-          path: ./Filter/LAN
+          path: ./ruleset/LAN.yaml
           url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
           interval: 86400
         BlockHttpDNS:
           type: http
           behavior: classical
-          path: ./Filter/BlockHttpDNS
+          path: ./ruleset/BlockHttpDNS.yaml
           url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml
           interval: 86400
 
@@ -402,7 +402,7 @@ parsers: # array
         - RULE-SET,Steam,Steam
         - RULE-SET,EA,EA
         - RULE-SET,Origin,Origin
-        - RULE-SET,Global,PROXY
+        - RULE-SET,Global,Global
         - RULE-SET,Direct,China
         - RULE-SET,China,China
         - RULE-SET,LAN,China
