@@ -116,14 +116,39 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+  nameserver-policy:
+    +.tmall.com: 223.5.5.5
+    +.taobao.com: 223.5.5.5
+    +.alicdn.com: 223.5.5.5
+    +.aliyun.com: 223.5.5.5
+    +.alipay.com: 223.5.5.5
+    +.alibaba.com: 223.5.5.5
+    +.qq.com: 119.29.29.29
+    +.tencent.com: 119.29.29.29
+    +.weixin.com: 119.29.29.29
+    +.qpic.cn: 119.29.29.29
+    +.jd.com: 119.29.29.29
+    +.bilibili.com: 119.29.29.29
+    +.hdslb.com: 119.29.29.29
+    +.163.com: 119.29.29.29
+    +.126.com: 119.29.29.29
+    +.126.net: 119.29.29.29
+    +.127.net: 119.29.29.29
+    +.netease.com: 119.29.29.29
+    +.baidu.com: 223.5.5.5
+    +.bdstatic.com: 223.5.5.5
+    +.bilivideo.+: 119.29.29.29
+    +.iqiyi.com: 119.29.29.29
+    +.douyinvod.com: 180.184.1.1
+    +.douyin.com: 180.184.1.1
+    +.douyincdn.com: 180.184.1.1
+    +.douyinpic.com: 180.184.1.1
+    +.feishu.cn: 180.184.1.1
   fallback:
-    - https://dns.cloudflare.com/dns-query
-    - https://dns.google/dns-query
     - https://public.dns.iij.jp/dns-query
     - https://doh.dns.sb/dns-query
   fallback-filter:
     geoip: true
-    geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
@@ -161,20 +186,16 @@ dns:
       - +.googletagmanager.com
       - +.googletagservices.com
 
-cfw-latency-url: http://cp.cloudflare.com/generate_204
+cfw-latency-url: http://www.gstatic.cn/generate_204
 cfw-latency-timeout: 3000
 cfw-latency-type: 1
 cfw-conn-break-strategy: true
 
-url-rewrite:
-  - ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
-  - ^https?:\/\/(ditu|maps).google\.cn https://maps.google.com 302
-
 proxies:
   - name: ☁️Cloudflare①
     type: wireguard
-    server: 188.114.99.196
-    port: 7559
+    server: 188.114.97.64
+    port: 864
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
@@ -190,8 +211,8 @@ proxies:
     remote-dns-resolve: true
   - name: ☁️Cloudflare②
     type: wireguard
-    server: 188.114.97.26
-    port: 1014
+    server: 162.159.192.216
+    port: 864
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
@@ -207,8 +228,8 @@ proxies:
     remote-dns-resolve: true
   - name: ☁️Cloudflare③
     type: wireguard
-    server: 188.114.96.250
-    port: 7559
+    server: 188.114.96.32
+    port: 1070
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
@@ -224,8 +245,8 @@ proxies:
     remote-dns-resolve: true
   - name: ☁️Cloudflare④
     type: wireguard
-    server: 162.159.195.80
-    port: 7559
+    server: 162.159.195.2
+    port: 864
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85b3:b413:d0b3:6fff:1e4c
     private-key: ADNh4TO45aMJTMeeimZuIgxtFMvjJpFnFSfcYI3rCH8=
@@ -249,6 +270,7 @@ proxy-groups:
     use:
       - 机场1
       - 机场2
+      - 机场3
     proxies:
       - 🇭🇰
       - 🇹🇼
@@ -407,41 +429,51 @@ proxy-groups:
   - name: 🇭🇰
     type: select
     use:
-      - 机场1🇭🇰
-      - 机场2🇭🇰
-    url: http://1.1.1.1/generate_204
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇭🇰|HK|香港|港|Hongkong
+    url: http://www.gstatic.cn/generate_204
     interval: 300
     tolerance: 150
   - name: 🇹🇼
     type: select
     use:
-      - 机场1🇹🇼
-      - 机场2🇹🇼
-    url: http://1.1.1.1/generate_204
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇹🇼|台|台湾|TW|Taiwan
+    url: http://www.gstatic.cn/generate_204
     interval: 300
     tolerance: 150
   - name: 🇸🇬
     type: select
     use:
-      - 机场1🇸🇬
-      - 机场2🇸🇬
-    url: http://1.1.1.1/generate_204
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇸🇬|狮城|新|新加坡|SG
+    url: http://www.gstatic.cn/generate_204
     interval: 300
     tolerance: 150
   - name: 🇯🇵
     type: select
     use:
-      - 机场1🇯🇵
-      - 机场2🇯🇵
-    url: http://1.1.1.1/generate_204
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP  
+    url: http://www.gstatic.cn/generate_204
     interval: 300
     tolerance: 150
   - name: 🇺🇸
     type: select
     use:
-      - 机场1🇺🇸
-      - 机场2🇺🇸
-    url: http://1.1.1.1/generate_204
+      - 机场1
+      - 机场2
+      - 机场3
+    filter: 🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us
+    url: http://www.gstatic.cn/generate_204
     interval: 300
     tolerance: 150
   - name: ☁️Cloudflare
@@ -451,7 +483,7 @@ proxy-groups:
       - ☁️Cloudflare②
       - ☁️Cloudflare③
       - ☁️Cloudflare④
-    url: http://1.1.1.1/generate_204
+    url: http://www.gstatic.cn/generate_204
     interval: 300
     tolerance: 150
   - name: Wireguard
@@ -465,94 +497,21 @@ proxy-providers:
     path: ./profiles/1662566992581.yml
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.cn/generate_204
       interval: 300
   机场2:
     type: file
     path: ./profiles/1661178999014.yml
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.cn/generate_204
       interval: 300
-  机场1🇭🇰:
+  机场3:
     type: file
-    path: ./profiles/1662566992581.yml
-    filter: 🇭🇰|HK|香港|港|Hongkong
+    path: ./profiles/1617367170896.yml
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场2🇭🇰:
-    type: file
-    path: ./profiles/1661178999014.yml
-    filter: 🇭🇰|HK|香港|港|Hongkong
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场1🇹🇼:
-    type: file
-    path: ./profiles/1662566992581.yml
-    filter: 🇹🇼|台|台湾|TW|Taiwan
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场2🇹🇼:
-    type: file
-    path: ./profiles/1661178999014.yml
-    filter: 🇹🇼|台|台湾|TW|Taiwan
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场1🇸🇬:
-    type: file
-    path: ./profiles/1662566992581.yml
-    filter: 🇸🇬|狮城|新|新加坡|SG
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场2🇸🇬:
-    type: file
-    path: ./profiles/1661178999014.yml
-    filter: 🇸🇬|狮城|新|新加坡|SG
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场1🇯🇵:
-    type: file
-    path: ./profiles/1662566992581.yml
-    filter: 🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场2🇯🇵:
-    type: file
-    path: ./profiles/1661178999014.yml
-    filter: 🇯🇵|日|日本|东京|大阪|泉日|埼玉|沪日|深日|JP
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场1🇺🇸:
-    type: file
-    path: ./profiles/1662566992581.yml
-    filter: 🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  机场2🇺🇸:
-    type: file
-    path: ./profiles/1661178999014.yml
-    filter: 🇺🇸|美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|us
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
+      url: http://www.gstatic.cn/generate_204
       interval: 300
 script:
   engine: expr
@@ -562,6 +521,7 @@ script:
 rules:
   - SCRIPT,quic,REJECT
   - RULE-SET,AdBlock,AdBlock
+  - RULE-SET,BlockHttpDNS,AdBlock
   - RULE-SET,ChatGPT,ChatGPT
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,YouTube,YouTube
@@ -574,11 +534,8 @@ rules:
   - RULE-SET,Steam,Steam
   - RULE-SET,EA,EA
   - RULE-SET,Origin,Origin
-  - RULE-SET,Global,Global
-  - RULE-SET,Direct,China
   - RULE-SET,China,China
   - RULE-SET,LAN,China
-  - GEOIP,,China
   - GEOIP,CN,China
   - MATCH,Final
 rule-providers:
@@ -719,4 +676,10 @@ rule-providers:
     behavior: classical
     path: ./Filter/LAN
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+    interval: 86400
+  BlockHttpDNS:
+    type: http
+    behavior: classical
+    path: ./Filter/BlockHttpDNS
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml
     interval: 86400
