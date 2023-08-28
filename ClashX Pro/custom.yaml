@@ -1,53 +1,113 @@
 #
-# Update:2023.03.27
+# Update:2023.08.29
 # ------------------
 # 规则库：https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash
 # ------------------
 
-# HTTP 代理端口
+# HTTP(S) 代理服务端口
 port: 7890
 
-# SOCKS5 代理端口
+# SOCKS5 代理服务端口
 socks-port: 7891
 
-# Linux 和 macOS 的 redir 代理端口 (如需使用此功能，请取消注释)
+# Linux 和 macOS 的透明代理服务端口 (TCP 和 TProxy UDP 重定向)
 redir-port: 7892
 
-# HTTP(S) and SOCKS5 共用端口
+# Linux 的透明代理服务端口 (TProxy TCP 和 TProxy UDP)
+# tproxy-port: 7893
+
+# HTTP(S) 和 SOCKS4(A)/SOCKS5 代理服务共用一个端口
 mixed-port: 7890
 
-# 允许局域网的连接（可用来共享代理）
+# 本地 SOCKS5/HTTP(S) 代理服务的认证
+# authentication:
+#  - "user1:pass1"
+#  - "user2:pass2"
+
+# 设置为 true 以允许来自其他 LAN IP 地址的连接
 allow-lan: false
 
-# 规则模式：global（全局代理）/ rule（规则） / script(腳本) / direct（全局直连）
+# 仅当 `allow-lan` 为 `true` 时有效
+# '*': 绑定所有 IP 地址
+# 192.168.122.11: 绑定单个 IPv4 地址
+# "[aaaa::a8aa:ff:fe09:57d8]": 绑定单个 IPv6 地址
+# bind-address: '*'
+
+# Clash 路由工作模式
+# rule: 基于规则的数据包路由
+# global: 所有数据包将被转发到单个节点
+# direct: 直接将数据包转发到互联网
 mode: rule
 
-# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
-# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+# 默认情况下, Clash 将日志打印到 STDOUT
+# 日志级别: info / warning / error / debug / silent
 log-level: info
 
-# clash 的 RESTful API
-external-controller: 0.0.0.0:9090
+# 当设置为 false 时, 解析器不会将主机名解析为 IPv6 地址
+# ipv6: false
 
-# 您可以将静态网页资源（如 clash-dashboard）放置在一个目录中，clash 将会服务于 `${API}/ui`
-# 参数应填写配置目录的相对路径或绝对路径。
+# RESTful Web API 监听地址
+external-controller: 127.0.0.1:9090
+
+# 配置目录的相对路径或静态 Web 资源目录的绝对路径. Clash core 将在
+# `http://{{external-controller}}/ui` 中提供服务.
 # external-ui: folder
 
-# RESTful API 的口令 (可选)
+# RESTful API 密钥 (可选)
+# 通过指定 HTTP 头 `Authorization: Bearer ${secret}` 进行身份验证
+# 如果RESTful API在 0.0.0.0 上监听, 务必设置一个 secret 密钥.
 secret: ""
 
-# DNS 设置
+# 出站接口名称
+# interface-name: en0
 
+# fwmark (仅在 Linux 上有效)
+# routing-mark: 6666
+
+# 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
+#
+# 支持通配符主机名 (例如 *.clash.dev, *.foo.*.example.com)
+# 非通配符域名优先级高于通配符域名
+# 例如 foo.example.com > *.example.com > .example.com
+# P.S. +.foo.com 等于 .foo.com 和 foo.com
+# hosts:
+  # '*.clash.dev': 127.0.0.1
+  # '.dev': 127.0.0.1
+  # 'alpha.clash.dev': '::1'
+
+# profile:
+  # 将 `select` 手动选择 结果存储在 $HOME/.config/clash/.cache 中
+  # 如果不需要此行为, 请设置为 false
+  # 当两个不同的配置具有同名的组时, 将共享所选值
+  # store-selected: true
+
+  # 持久化 fakeip
+  # store-fake-ip: false
+
+# DNS 服务设置
+# 此部分是可选的. 当不存在时, DNS 服务将被禁用.
 dns:
   enable: true
   listen: 0.0.0.0:53
+  # 当为 false 时, AAAA 查询的响应将为空
+  ipv6: false  
+  # 这些 名称服务器(nameservers) 用于解析下列 DNS 名称服务器主机名.
+  # 仅指定 IP 地址  
   default-nameserver:
     - 223.5.5.5
     - 8.8.4.4
     - 119.29.29.29
-  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16 # Fake IP 地址池 (CIDR 形式)
+  # use-hosts: true # 查找 hosts 并返回 IP 记录
+
+  # search-domains: [local] # A/AAAA 记录的搜索域
+
+  # 此列表中的主机名将不会使用 Fake IP 解析
+  # 即, 对这些域名的请求将始终使用其真实 IP 地址进行响应
+  # fake-ip-filter:
+  #   - '*.lan'
+  #   - localhost.ptlogin2.qq.com
   fake-ip-filter:
     - "*.lan"
     - "*.localdomain"
@@ -144,9 +204,13 @@ dns:
     - "*.mcdn.bilivideo.cn"
     - +.media.dssott.com
     - +.pvp.net
+  # 支持 UDP、TCP、DoT、DoH. 您可以指定要连接的端口.
+  # 所有 DNS 查询都直接发送到名称服务器, 无需代理
+  # Clash 使用第一个收到的响应作为 DNS 查询的结果.  
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+  # 通过特定的名称服务器查找域名
   nameserver-policy:
     +.tmall.com: 223.5.5.5
     +.taobao.com: 223.5.5.5
@@ -175,10 +239,23 @@ dns:
     +.douyincdn.com: 180.184.1.1
     +.douyinpic.com: 180.184.1.1
     +.feishu.cn: 180.184.1.1
+  # 当 `fallback` 存在时, DNS 服务器将向此部分中的服务器
+  # 与 `nameservers` 中的服务器发送并发请求
+  # 当 GEOIP 国家不是 `CN` 时, 将使用 fallback 服务器的响应    
   fallback:
     - https://dns.cloudflare.com/dns-query
     - https://dns.google/dns-query
     - https://public.dns.iij.jp/dns-query
+  # 如果使用 `nameservers` 解析的 IP 地址在下面指定的子网中,
+  # 则认为它们无效, 并使用 `fallback` 服务器的结果.
+  #
+  # 当 `fallback-filter.geoip` 为 true 且 IP 地址的 GEOIP 为 `CN` 时,
+  # 将使用 `nameservers` 服务器解析的 IP 地址.
+  #
+  # 如果 `fallback-filter.geoip` 为 false, 且不匹配 `fallback-filter.ipcidr`,
+  # 则始终使用 `nameservers` 服务器的结果
+  #
+  # 这是对抗 DNS 污染攻击的一种措施.    
   fallback-filter:
     geoip: false
     ipcidr:
@@ -527,7 +604,7 @@ proxy-groups:
       - PROXY
       - REJECT
       - DIRECT
-      
+
   - name: 🇭🇰
     type: select
     use:
@@ -654,6 +731,7 @@ script:
 rules:
   - SCRIPT,quic,REJECT
   - RULE-SET,AdBlock,AdBlock
+  - RULE-SET,BlockHttpDNS,AdBlock
   - RULE-SET,ChatGPT,ChatGPT
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Apple,Apple
@@ -810,4 +888,10 @@ rule-providers:
     behavior: classical
     path: ./Filter/LAN
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+    interval: 86400
+  BlockHttpDNS:
+    type: http
+    behavior: classical
+    path: ./Filter/BlockHttpDNS
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml
     interval: 86400
