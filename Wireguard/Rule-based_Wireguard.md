@@ -106,3 +106,17 @@ netsh interface ipv6 delete route prefix= ::0/0 interface= wg0
 REM OR
 netsh interface ipv6 delete route ::0/0 "wg0"
 ```
+
+
+MacOS[]: # Path: Rule-based_Wireguard.md
+```bash
+ip route add 0.0.0.0/32 nexthop 172.16.0.2
+
+ip route delete 0.0.0.0/32
+```
+
+```bash
+route -q -n -v add -inet 0.0.0.0/32 172.16.0.2
+
+route -q -n -v delete -inet 0.0.0.0/32
+```

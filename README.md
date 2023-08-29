@@ -41,11 +41,11 @@
 
 [🍟 GetSomeFries](https://github.com/VirgilClyne/GetSomeFries)
 
-[京东比价 for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/JDPrice.module)
+[京东比价 for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/JDPrice.sgmodule)
 
-[Google Redirect for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/GoogleRedirect.module)
+[Google Redirect for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/GoogleRedirect.sgmodule)
 
-[Youtube AdBlock for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/YoutubeAdBlock.module)
+[Youtube AdBlock for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/YoutubeAdBlock.sgmodule)
 
 [Wechat AdBlock for shadowrocket](https://api.boxjs.app/shadowrocket/install?module=https://raw.githubusercontent.com/showchi/Samples/main/Module/WechatAdBlock.sgmodule)
 
