@@ -320,6 +320,16 @@ proxy-groups:
       - 🇯🇵
       - 🇺🇸
       - DIRECT
+  - name: Apple
+    type: select
+    proxies:
+      - PROXY
+      - 🇭🇰
+      - 🇹🇼
+      - 🇸🇬
+      - 🇯🇵
+      - 🇺🇸
+      - DIRECT
   - name: ChatGPT
     type: select
     proxies:
@@ -531,6 +541,7 @@ rules:
   - RULE-SET,Netflix,Netflix
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Spotify,Spotify
+  - RULE-SET,Apple,Apple
   - RULE-SET,Steam,Steam
   - RULE-SET,EA,EA
   - RULE-SET,Origin,Origin
