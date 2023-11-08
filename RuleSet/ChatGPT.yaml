@@ -1,9 +1,9 @@
 # NAME: ChatGPT
 # AUTHOR: showchi
 # REPO: https://github.com/showchi/Samples
-# UPDATED: 2023-06-29 14:49:58
-# DOMAIN-SUFFIX: 6
-# TOTAL: 6
+# UPDATED: 2023-11-09 02:20:58
+# DOMAIN-SUFFIX: 8
+# TOTAL: 8
 payload:
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,chat.openai.com
